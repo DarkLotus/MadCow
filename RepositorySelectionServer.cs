@@ -49,13 +49,47 @@ namespace MadCow
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LaunchServerButton.Enabled = true;
+            //When a user selects a repository from the RepoSelectionForm MadCow writes the correct values into that specific repository INI config file. Its better this way cause
+            //handling different repositories, MPQ Storage destination changes and different profiles its tough thing :P, atleast for me.
             int selected = checkedListBox1.SelectedIndex;
             if (selected != -1)
-            {   //We set the Mooege INI path according to user repo selection for further use when writing new config values.               
-                Compile.mooegeINI =  Program.programPath + @"\" + @"Repositories\" + checkedListBox1.Items[selected].ToString() + @"\src\Mooege\bin\Debug\config.ini";
+            {   //We set the correct values into the Mooege config.ini of the selected repository. According to the profile loaded.       
                 Compile.currentMooegeExePath = Program.programPath + @"\" + @"Repositories\" + checkedListBox1.Items[selected].ToString() + @"\src\Mooege\bin\Debug\Mooege.exe";
+                var _repoINIpath = Program.programPath + @"\" + @"Repositories\" + checkedListBox1.Items[selected].ToString() + @"\src\Mooege\bin\Debug\config.ini";
+                IConfigSource repoINIpath = new IniConfigSource(_repoINIpath);
+                //Global settings:
+                #region SetSettings
+                repoINIpath.Configs["Storage"].Set("MPQRoot", Form1.GlobalAccess.MPQDestTextBox.Text);
+                repoINIpath.Configs["ServerLog"].Set("Enabled", Form1.GlobalAccess.SettingsCheckedListBox.GetItemChecked(0));
+                repoINIpath.Configs["PacketLog"].Set("Enabled", Form1.GlobalAccess.SettingsCheckedListBox.GetItemChecked(1));
+                repoINIpath.Configs["Storage"].Set("EnableTasks", Form1.GlobalAccess.SettingsCheckedListBox.GetItemChecked(2));
+                repoINIpath.Configs["Storage"].Set("LazyLoading", Form1.GlobalAccess.SettingsCheckedListBox.GetItemChecked(3));
+                repoINIpath.Configs["Authentication"].Set("DisablePasswordChecks", Form1.GlobalAccess.SettingsCheckedListBox.GetItemChecked(4));
+                //We set the server variables:
+                TextReader tr = new StreamReader(Form1.CurrentProfile);
+                //The next values are set in an SPECIFIC ORDER, changing the order will make INI modifying FAIL.
+                //MooNet-Server IP
+                repoINIpath.Configs["MooNet-Server"].Set("BindIP", tr.ReadLine());
+                //Game-Server IP
+                repoINIpath.Configs["Game-Server"].Set("BindIP", tr.ReadLine());
+                //Public IP
+                repoINIpath.Configs["NAT"].Set("PublicIP", tr.ReadLine());
+                //MooNet-Server Port
+                repoINIpath.Configs["MooNet-Server"].Set("Port", tr.ReadLine());
+                //Game-Server Port
+                repoINIpath.Configs["Game-Server"].Set("Port", tr.ReadLine());
+                //MOTD
+                repoINIpath.Configs["MooNet-Server"].Set("MOTD", tr.ReadLine());
+                //NAT
+                repoINIpath.Configs["NAT"].Set("Enabled", tr.ReadLine());
+                repoINIpath.Save();
+                tr.Close();
+                #endregion
+                Console.WriteLine("Current Profile: " + Path.GetFileName(Form1.CurrentProfile));
+                Console.WriteLine("Set Mooege config.ini according to your profile " + Path.GetFileName(Form1.CurrentProfile));
+                Console.WriteLine(checkedListBox1.Items[selected].ToString() + " is ready to go.");
             }
+            LaunchServerButton.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,34 +101,6 @@ namespace MadCow
                 if (answer == DialogResult.Yes)
                 {
                     ProcessFinder.KillProcess("Mooege");
-                    TextReader tr = new StreamReader(Form1.CurrentProfile);
-                    IConfigSource source = new IniConfigSource(Compile.mooegeINI);
-                    //The next values are set in an SPECIFIC ORDER, changing the order will make INI modifying FAIL.
-                    //MooNet-Server IP
-                    IConfig config = source.Configs["MooNet-Server"];
-                    config.Set("BindIP", tr.ReadLine());
-                    //Game-Server IP
-                    IConfig config2 = source.Configs["Game-Server"];
-                    config2.Set("BindIP", tr.ReadLine());
-                    //Public IP
-                    IConfig config4 = source.Configs["NAT"];
-                    config4.Set("PublicIP", tr.ReadLine());
-                    //MooNet-Server Port
-                    IConfig config1 = source.Configs["MooNet-Server"];
-                    config1.Set("Port", tr.ReadLine());
-                    //Game-Server Port
-                    IConfig config3 = source.Configs["Game-Server"];
-                    config3.Set("Port", tr.ReadLine());
-                    //MOTD
-                    IConfig config7 = source.Configs["MooNet-Server"];
-                    config7.Set("MOTD", tr.ReadLine());
-                    //NAT
-                    IConfig config5 = source.Configs["NAT"];
-                    config5.Set("Enabled", tr.ReadLine());
-                    Console.WriteLine("Set Mooege config.ini according to your profile - Complete");
-                    source.Save();
-                    tr.Close();
-
                     Process proc0 = new Process();
                     proc0.StartInfo = new ProcessStartInfo(Compile.currentMooegeExePath);
                     proc0.Start();
@@ -108,34 +114,6 @@ namespace MadCow
             else
             {
                 ProcessFinder.KillProcess("Mooege");
-                TextReader tr = new StreamReader(Form1.CurrentProfile);
-                IConfigSource source = new IniConfigSource(Compile.mooegeINI);
-                //The next values are set in an SPECIFIC ORDER, changing the order will make INI modifying FAIL.
-                //MooNet-Server IP
-                IConfig config = source.Configs["MooNet-Server"];
-                config.Set("BindIP", tr.ReadLine());
-                //Game-Server IP
-                IConfig config2 = source.Configs["Game-Server"];
-                config2.Set("BindIP", tr.ReadLine());
-                //Public IP
-                IConfig config4 = source.Configs["NAT"];
-                config4.Set("PublicIP", tr.ReadLine());
-                //MooNet-Server Port
-                IConfig config1 = source.Configs["MooNet-Server"];
-                config1.Set("Port", tr.ReadLine());
-                //Game-Server Port
-                IConfig config3 = source.Configs["Game-Server"];
-                config3.Set("Port", tr.ReadLine());
-                //MOTD
-                IConfig config7 = source.Configs["MooNet-Server"];
-                config7.Set("MOTD", tr.ReadLine());
-                //NAT
-                IConfig config5 = source.Configs["NAT"];
-                config5.Set("Enabled", tr.ReadLine());
-                Console.WriteLine("Set Mooege config.ini according to your profile - Complete");
-                source.Save();
-                tr.Close();
-
                 Process proc0 = new Process();
                 proc0.StartInfo = new ProcessStartInfo(Compile.currentMooegeExePath);
                 proc0.Start();

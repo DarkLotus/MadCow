@@ -24,11 +24,11 @@ namespace MadCow
 
         public void AddAvailableFiles() //Adds available repos to the list.
         {
-            foreach (string element in TestMPQ.mpqList)
+            foreach (string element in RetrieveMpqList.mpqList)
             {
                 int pointer = element.LastIndexOf("-");
                 //We get the MPQ version ID only e.g(8081).
-                string name = element.Substring(pointer+1, 4);
+                string name = element.Substring(pointer + 1, 4);
                 //Add the name to our MPQ Downloader ListBox.
                 this.checkedListBox1.Items.Add(name);
             }
@@ -43,13 +43,13 @@ namespace MadCow
                 Console.WriteLine("Starting download...");
                 Form1.GlobalAccess.Invoke(new Action(() =>
                 {
-                    Form1.GlobalAccess.backgroundWorker3.RunWorkerAsync();
+                    Form1.GlobalAccess.DownloadSelectedMpqs.RunWorkerAsync();
                 }));
                 this.Close();
             }
             else
             {
-                MessageBox.Show("No selected file was found.","MadCow Downloader",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("No selected file was found.", "MadCow Downloader", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -57,7 +57,7 @@ namespace MadCow
                         foreach (string folder in FoldersArray)
                         {
                             DirectoryInfo info = new DirectoryInfo(folder);
-                            Directory.Delete(info.FullName,true);
+                            Directory.Delete(info.FullName, true);
                             Console.WriteLine("Deleted: {0}", info.Name);
                         }
                     }
@@ -65,7 +65,7 @@ namespace MadCow
                     break;
 
                 case 2: //Delete corrupted file thrown by ErrorFinder class.
-                    IConfigSource source = new IniConfigSource(Program.programPath + @"\Tools\madcow.ini");
+                    IConfigSource source = new IniConfigSource(Program.madcowINI);
                     string MPQpath = source.Configs["DiabloPath"].Get("MPQpath");
                     if (MPQpath.Length > 0) //This is to avoid deleting a non existant file if user its only using standalone Mooege server without D3 client.
                     {
@@ -75,8 +75,8 @@ namespace MadCow
                     break;
             }
         }
-        
-        
+
+
         //This is disabled for now, must be enable for public use version.
         public static void HideFile()//We hide the default profile, we dont want nubs deleting this cause MadCow will cry about it.
         {
@@ -86,7 +86,7 @@ namespace MadCow
 
         public static void DeleteOldRepoVersion(string developerName)
         {
-            Console.WriteLine("Looking for [{0}] old repository", developerName);
+            Console.WriteLine("Looking for [{0}] existing repository.", developerName);
             String directoryString = Program.programPath + @"\Repositories\";
             Int32 i = directoryString.LastIndexOf('\\');
             directoryString = directoryString.Remove(i, directoryString.Length - i);
@@ -96,14 +96,14 @@ namespace MadCow
 
             foreach (string directory in directories)
             {
-                    DirectoryInfo dinfo = new DirectoryInfo(directory);
-                    if (directory.Contains(developerName) && dinfo.Name.StartsWith(developerName)) //We avoid deleting all folder that contains Mooege when we are just trying to get rid of Master branch.
-                    {
-                        folderName[j] = dinfo.Name;
-                        folderName[j + 1] = directory;
-                        Directory.Delete(folderName[1], true);
-                        Console.WriteLine("Deleted Old Version of : {0} revision.", folderName[0]);
-                    }
+                DirectoryInfo dinfo = new DirectoryInfo(directory);
+                if (directory.Contains(developerName) && dinfo.Name.StartsWith(developerName)) //We avoid deleting all folder that contains Mooege when we are just trying to get rid of Master branch.
+                {
+                    folderName[j] = dinfo.Name;
+                    folderName[j + 1] = directory;
+                    Directory.Delete(folderName[1], true);
+                    Console.WriteLine("Deleted Old Version of : {0} repository.", folderName[0]);
+                }
             }
         }
     }

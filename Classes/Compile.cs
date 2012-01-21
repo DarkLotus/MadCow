@@ -16,10 +16,13 @@
 
 using System;
 using System.IO;
+using System.Windows.Forms;
+
 using Nini.Config;
 using Microsoft.Build.Evaluation;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 
 namespace MadCow
 {
@@ -29,8 +32,6 @@ namespace MadCow
         public static String currentMooegeExePath = "";
         public static String currentMooegeDebugFolderPath = "";
         public static String mooegeINI = "";
-        //This paths dont change.
-        public static String madcowINI = Program.programPath + @"\Tools\\Settings.ini";
 
         public static void compileSource()
         {
@@ -47,11 +48,11 @@ namespace MadCow
             else
             {
                 Console.WriteLine("Compiling Complete.");
-                if (File.Exists(Program.programPath + "\\Tools\\" + "madcow.ini"))
+                if (File.Exists(Program.madcowINI))
                 {
-                    IConfigSource source = new IniConfigSource(Program.programPath + @"\Tools\madcow.ini");
+                    IConfigSource source = new IniConfigSource(Program.madcowINI);
                     String Src = source.Configs["Balloons"].Get("ShowBalloons");
-                    if (Src.Contains("1")) { Form1.GlobalAccess.notifyIcon1.ShowBalloonTip(1000, "MadCow", "Compiling Complete!", ToolTipIcon.Info); }
+                    if (Src.Contains("1")) { Form1.GlobalAccess.MadCowTrayIcon.ShowBalloonTip(1000, "MadCow", "Compiling Complete!", ToolTipIcon.Info); }
                 }
             }
         }
@@ -59,11 +60,11 @@ namespace MadCow
         private static bool CompileLibMooNet(string libmoonetPath)
         {
             Console.WriteLine("Compiling LibMoonet...");
-            if (File.Exists(Program.programPath + "\\Tools\\" + "madcow.ini"))
+            if (File.Exists(Program.madcowINI))
             {
-                IConfigSource source = new IniConfigSource(Program.programPath + @"\Tools\madcow.ini");
+                IConfigSource source = new IniConfigSource(Program.madcowINI);
                 String Src = source.Configs["Balloons"].Get("ShowBalloons");
-                if (Src.Contains("1")) { Form1.GlobalAccess.notifyIcon1.ShowBalloonTip(1000, "MadCow", "Compiling LibMoonet...", ToolTipIcon.Info); }
+                if (Src.Contains("1")) { Form1.GlobalAccess.MadCowTrayIcon.ShowBalloonTip(1000, "MadCow", "Compiling LibMoonet...", ToolTipIcon.Info); }
             }
             var libmoonetProject = new Project(libmoonetPath);
             return libmoonetProject.Build(new Microsoft.Build.Logging.FileLogger());
@@ -74,40 +75,16 @@ namespace MadCow
             if (LibMooNetStatus)
             {
                 Console.WriteLine("Compiling Mooege...");
-                if (File.Exists(Program.programPath + "\\Tools\\" + "madcow.ini"))
+                if (File.Exists(Program.madcowINI))
                 {
-                    IConfigSource source = new IniConfigSource(Program.programPath + @"\Tools\madcow.ini");
+                    IConfigSource source = new IniConfigSource(Program.madcowINI);
                     String Src = source.Configs["Balloons"].Get("ShowBalloons");
-                    if (Src.Contains("1")) { Form1.GlobalAccess.notifyIcon1.ShowBalloonTip(1000, "MadCow", "Compiling Mooege......", ToolTipIcon.Info); }
+                    if (Src.Contains("1")) { Form1.GlobalAccess.MadCowTrayIcon.ShowBalloonTip(1000, "MadCow", "Compiling Mooege......", ToolTipIcon.Info); }
                 }
                 var mooegeProject = new Project(mooegePath);
                 return mooegeProject.Build(new Microsoft.Build.Logging.FileLogger());
             }
             return false;
-        }
-
-        public static void ModifyMooegeINI()
-        {
-            try
-            {
-                //After compiling we modify Mooege INI config file with the correct Storage path.
-                IConfigSource source = new IniConfigSource(Compile.mooegeINI);
-                string fileName = source.Configs["Storage"].Get("MPQRoot");
-                if (fileName.Contains("${Root}"))
-                {
-                    Console.WriteLine("Modifying Mooege MPQ storage folder...");
-                    IConfig config = source.Configs["Storage"];
-                    config.Set("MPQRoot", Program.programPath + "\\MPQ");
-                    source.Save();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Modifying Mooege MPQ storage folder Complete.");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-            }
-            catch
-            {
-                Console.WriteLine("[Fatal] Could not modify Mooege INI config file.");
-            }
         }
     }
 }

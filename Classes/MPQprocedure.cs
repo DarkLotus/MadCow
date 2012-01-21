@@ -34,18 +34,27 @@ namespace MadCow
         public static void MpqTransfer()
         {
             //Takes Diablo Path from Ini, which gets it from finding diablo3.exe 
-            IConfigSource source = new IniConfigSource(Program.programPath + @"\Tools\madcow.ini");
+            IConfigSource source = new IniConfigSource(Program.madcowINI);
             string Src = source.Configs["DiabloPath"].Get("MPQpath");
-            String Dst = Program.programPath + @"/MPQ";
+            String Dst = source.Configs["DiabloPath"].Get("MPQDest");
 
             if (ProcessFinder.FindProcess("Diablo") == true)
             {
                 ProcessFinder.KillProcess("Diablo");
                 Console.WriteLine("Killed Diablo3 Process");
             }
-            Console.WriteLine("Creating MadCow MPQ folder...");
-            Directory.CreateDirectory(Program.programPath + @"/MPQ");
-            Console.WriteLine("Creating MadCow MPQ folder Complete");
+            if (Directory.Exists(Dst) == false)
+            {
+                Console.WriteLine("Creating MPQ folder...");
+                Directory.CreateDirectory(Dst);
+                Console.WriteLine("Created MPQ folder over:" + Dst);
+            }
+            if (Directory.Exists(Path.Combine(source.Configs["DiabloPath"].Get("MPQDest"), @"base\")) == false)
+            {
+                Console.WriteLine("Creating MPQ base folder...");
+                Directory.CreateDirectory(Dst);
+                Console.WriteLine("Created MPQ base folder over:" + Dst + @"\base\");
+            }
             //Proceeds to copy data
             Console.WriteLine("Copying MPQ files to MadCow Folders...");
             copyDirectory(Src, Dst);
