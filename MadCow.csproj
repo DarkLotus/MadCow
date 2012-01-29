@@ -40,7 +40,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\MadCowDebug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -61,16 +61,24 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Tools\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Meebey.SmartIrc4net">
+      <HintPath>Tools\Meebey.SmartIrc4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Nini">
       <HintPath>Tools\Nini.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,43 +90,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ShortCutCreator.cs" />
-    <Compile Include="Classes\Helpers.cs" />
-    <Compile Include="Classes\ErrorFinder.cs" />
-    <Compile Include="Classes\Diablo.cs" />
-    <Compile Include="Classes\FindBranch.cs" />
-    <Compile Include="Classes\RetrieveMpqList.cs" />
-    <Compile Include="Classes\TextBoxStreamWriter.cs" />
-    <Compile Include="Classes\ProcessFinder.cs" />
-    <Compile Include="Classes\Delete.cs" />
-    <Compile Include="Classes\MadCowProcedure.cs" />
-    <Compile Include="Classes\MPQprocedure.cs" />
-    <Compile Include="Classes\ParseRevision.cs" />
-    <Compile Include="Classes\Compile.cs" />
-    <Compile Include="Classes\PreRequeriments.cs" />
-    <Compile Include="Classes\RefreshDesktop.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MadCowClasses\Irc.cs" />
+    <Compile Include="MadCowClasses\Proxy.cs" />
+    <Compile Include="MadCowClasses\ShortCutCreator.cs" />
+    <Compile Include="MadCowClasses\Helpers.cs" />
+    <Compile Include="MadCowClasses\ErrorFinder.cs" />
+    <Compile Include="MadCowClasses\Diablo.cs" />
+    <Compile Include="MadCowClasses\FindBranch.cs" />
+    <Compile Include="MadCowClasses\RetrieveMpqList.cs" />
+    <Compile Include="MadCowClasses\TextBoxStreamWriter.cs" />
+    <Compile Include="MadCowClasses\ProcessFinder.cs" />
+    <Compile Include="MadCowClasses\Delete.cs" />
+    <Compile Include="MadCowClasses\MadCowProcedure.cs" />
+    <Compile Include="MadCowClasses\MPQprocedure.cs" />
+    <Compile Include="MadCowClasses\ParseRevision.cs" />
+    <Compile Include="MadCowClasses\Compile.cs" />
+    <Compile Include="MadCowClasses\PreRequeriments.cs" />
+    <Compile Include="MadCowClasses\RefreshDesktop.cs" />
+    <Compile Include="Forms\MainMadCowForm\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\MainMadCowForm\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogHelper\BetterDialog.cs">
+    <Compile Include="Forms\MPQDownloaderForm\MPQDownloader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DialogHelper\BetterDialog.designer.cs">
-      <DependentUpon>BetterDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MPQDownloader.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MPQDownloader.Designer.cs">
+    <Compile Include="Forms\MPQDownloaderForm\MPQDownloader.Designer.cs">
       <DependentUpon>MPQDownloader.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepositorySelectionPlay.cs">
+    <Compile Include="Forms\RepositorySelectionPlayForm\RepositorySelectionPlay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RepositorySelectionPlay.Designer.cs">
+    <Compile Include="Forms\RepositorySelectionPlayForm\RepositorySelectionPlay.Designer.cs">
       <DependentUpon>RepositorySelectionPlay.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -128,36 +132,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RepositorySelectionServer.cs">
+    <Compile Include="Forms\RepositorySelectionServerForm\RepositorySelectionServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RepositorySelectionServer.Designer.cs">
+    <Compile Include="Forms\RepositorySelectionServerForm\RepositorySelectionServer.Designer.cs">
       <DependentUpon>RepositorySelectionServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\ZipStorer.cs" />
+    <Compile Include="Forms\SplashScreenForm\SpashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreenForm\SpashScreen.Designer.cs">
+      <DependentUpon>SpashScreen.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Docs\README">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mooege.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Docs\TODO.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="mooege.ico" />
-    <Content Include="MPQ\base\MPQFolder.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Repositories\ReposGoHere.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\process_chain.png" />
-    <Content Include="ServerProfiles\Do-Not-Save-As-Default.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\MCLastWesko.png" />
+    <None Include="Resources\help_button2.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\mooege.jpg" />
+    <None Include="Resources\mooege.gif" />
     <Content Include="Tools\RepoList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\correct.png" />
-    <Content Include="Resources\error_cross.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\green-tick.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Resources\error_cross.png" />
+    <Content Include="Resources\green-tick.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -182,16 +192,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="app.manifest" />
-    <Content Include="ServerProfiles\ProfilesGoHere.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Tools\madcow.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ServerProfiles\Default.mdc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -215,29 +217,30 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\MainMadCowForm\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogHelper\BetterDialog.resx">
-      <DependentUpon>BetterDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MPQDownloader.resx">
+    <EmbeddedResource Include="Forms\MPQDownloaderForm\MPQDownloader.resx">
       <DependentUpon>MPQDownloader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RepositorySelectionPlay.resx">
+    <EmbeddedResource Include="Forms\RepositorySelectionPlayForm\RepositorySelectionPlay.resx">
       <DependentUpon>RepositorySelectionPlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="RepositorySelectionServer.resx">
+    <EmbeddedResource Include="Forms\RepositorySelectionServerForm\RepositorySelectionServer.resx">
       <DependentUpon>RepositorySelectionServer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreenForm\SpashScreen.resx">
+      <DependentUpon>SpashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MadCowUpdater\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

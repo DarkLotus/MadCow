@@ -124,13 +124,19 @@
   <data name="error_cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error_cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="green-tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="green_tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green-tick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mooege" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\mooege.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MCLastWesko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MCLastWesko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="process_chain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\process_chain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_button2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -15,38 +15,28 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 using System;
+using System.Collections.Generic;
 using System.IO;
-using Microsoft.Build.Evaluation;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using Nini.Config;
 
-namespace MadCowUpdater
+namespace MadCow
 {
-    class Compile
+    class PreRequeriments
     {
-        public static void compileSource()
+        public static void CheckPrerequeriments()
         {
-            var madcowPath = Path.GetTempPath() + @"\MadCow\NewMadCow\MadCow.csproj";
+            String checkNet4 = Environment.Version.ToString();
 
-            Task<bool> task = Task<bool>.Factory.StartNew(() => CompileMadcow(madcowPath));
-            bool result = task.Result;
-            Task.WaitAll(task);
-
-            if (result == false)
+            if (checkNet4.StartsWith("4"))
             {
-                MessageBox.Show("[Fatal] Failed to compile.");
-                Application.Exit();
+                Console.WriteLine("Found .NET Framework " + checkNet4);
             }
             else
             {
-                MessageBox.Show("Success.");
+                Console.WriteLine("Please update .NET Framework to version 4!");
             }
-        }
-
-        private static bool CompileMadcow(string madcowPath)
-        {
-            var madcowProject = new Project(madcowPath);
-            return madcowProject.Build(new Microsoft.Build.Logging.FileLogger());
         }
     }
 }

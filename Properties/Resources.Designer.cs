@@ -76,21 +76,35 @@ namespace MadCow.Properties {
         
         public static System.Drawing.Bitmap green_tick {
             get {
-                object obj = ResourceManager.GetObject("green-tick", resourceCulture);
+                object obj = ResourceManager.GetObject("green_tick", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        public static System.Drawing.Icon mooege {
+        public static System.Drawing.Bitmap help_button2 {
             get {
-                object obj = ResourceManager.GetObject("mooege", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("help_button2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap MCLastWesko {
+            get {
+                object obj = ResourceManager.GetObject("MCLastWesko", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         public static System.Drawing.Bitmap process_chain {
             get {
                 object obj = ResourceManager.GetObject("process_chain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

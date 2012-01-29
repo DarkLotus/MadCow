@@ -60,23 +60,30 @@ namespace MadCowUpdater.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _1195445190322000997molumen_red_round_error_warning_icon_svg_hi_50x50 {
+        internal static System.Drawing.Bitmap cross_error {
             get {
-                object obj = ResourceManager.GetObject("1195445190322000997molumen_red_round_error_warning_icon.svg.hi_50x50", resourceCulture);
+                object obj = ResourceManager.GetObject("cross_error", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap close_cross_delete_error_output_icone_5011_96_50x50 {
+        internal static System.Drawing.Bitmap error_warning {
             get {
-                object obj = ResourceManager.GetObject("close-cross-delete-error-output-icone-5011-96_50x50", resourceCulture);
+                object obj = ResourceManager.GetObject("error_warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap green_tick_555px_50x50 {
+        internal static System.Drawing.Bitmap green_dot {
             get {
-                object obj = ResourceManager.GetObject("green_tick-555px_50x50", resourceCulture);
+                object obj = ResourceManager.GetObject("green_dot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap green_tick {
+            get {
+                object obj = ResourceManager.GetObject("green_tick", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
