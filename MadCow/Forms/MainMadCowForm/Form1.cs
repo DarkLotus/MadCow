@@ -151,7 +151,7 @@ namespace MadCow
 
         public void ThreadProc()
         {
-            Diablo.Play((Repository)repoComboBox.SelectedItem);
+            repoComboBox.Invoke(new Action(() => Diablo.Play((Repository)repoComboBox.SelectedItem)));
 
             //We add ErrorFinder call here, in order to know if Mooege had issues loading.
             if (!File.Exists(Environment.CurrentDirectory + @"\logs\mooege.log")) return;

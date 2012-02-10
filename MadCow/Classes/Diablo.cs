@@ -25,8 +25,8 @@ namespace MadCow
     {
         public static void Play(Repository repository)
         {
-            try
-            {
+            //try
+            //{
                 var src = Configuration.MadCow.DiabloPath;
                 Configuration.UpdateMooegeIni(repository);
                 if (ProcessFinder.FindProcess("Mooege") == false)
@@ -84,14 +84,11 @@ namespace MadCow
                         Diablo3.Start();
                     }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("[ERROR] Could not launch Diablo. (Diablo.cs)" +
-                                  "\nPlease report this error in the forum.");
+            //}
+            //catch
+            //{
+                //Console.WriteLine("[ERROR] Could not launch Diablo. (Diablo.cs)" +
+                 //                 "\nPlease report this error in the forum.");
             }
         }
-
-
     }
-}
