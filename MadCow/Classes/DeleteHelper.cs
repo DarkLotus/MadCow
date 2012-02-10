@@ -17,6 +17,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MadCow
 {
@@ -55,11 +56,11 @@ namespace MadCow
                             {
                                 Console.WriteLine("Deleting Saved Repositories...");
                             }
-                            foreach (var info in foldersArray.Select(folder => new DirectoryInfo(folder)))
-                            {
-                                Directory.Delete(info.FullName, true);
-                                Console.WriteLine("Deleted: {0}", info.Name);
-                            }
+                            Parallel.ForEach(foldersArray.Select(folder => new DirectoryInfo(folder)), info =>
+                                {
+                                    Directory.Delete(info.FullName, true);
+                                    Console.WriteLine("Deleted: {0}", info.Name);
+                                });
                         }
                         catch
                         {

@@ -56,6 +56,7 @@ namespace MadCow
                 {
                     Form1.GlobalAccess.CopyMPQButton.Enabled = true;
                     Form1.GlobalAccess.PlayDiabloButton.Enabled = true; //We enable Play D3 button again.
+                    Form1.GlobalAccess.PlayDiabloButton.PerformClick();
                 }));
             }
             else
@@ -99,6 +100,7 @@ namespace MadCow
             catch(Exception e)
             {
                 Console.WriteLine("[ERROR] Unable to copy MPQ files. (MPQprocedures.cs)");
+                throw e;
             }
         }
     }

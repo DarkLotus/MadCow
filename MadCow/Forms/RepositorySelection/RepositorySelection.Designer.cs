@@ -202,7 +202,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Select a Repository";
+            this.Text = "Repository Manager";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

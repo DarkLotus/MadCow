@@ -139,4 +139,22 @@
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mooegelogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mooegelogo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="madcosoft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\madcosoft.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="numero1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\numero1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="numero2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\numero2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="numero3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\numero3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="numero4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\numero4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

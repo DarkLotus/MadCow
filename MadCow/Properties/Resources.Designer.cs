@@ -88,9 +88,51 @@ namespace MadCow.Properties {
             }
         }
         
+        public static System.Drawing.Bitmap madcosoft {
+            get {
+                object obj = ResourceManager.GetObject("madcosoft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap MCLastWesko {
             get {
                 object obj = ResourceManager.GetObject("MCLastWesko", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap mooegelogo {
+            get {
+                object obj = ResourceManager.GetObject("mooegelogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap numero1 {
+            get {
+                object obj = ResourceManager.GetObject("numero1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap numero2 {
+            get {
+                object obj = ResourceManager.GetObject("numero2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap numero3 {
+            get {
+                object obj = ResourceManager.GetObject("numero3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap numero4 {
+            get {
+                object obj = ResourceManager.GetObject("numero4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

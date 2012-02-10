@@ -145,7 +145,7 @@
     <Compile Include="Classes\RetrieveMpqList.cs" />
     <Compile Include="Classes\TextBoxStreamWriter.cs" />
     <Compile Include="Classes\ProcessFinder.cs" />
-    <Compile Include="Classes\Delete.cs" />
+    <Compile Include="Classes\DeleteHelper.cs" />
     <Compile Include="Classes\MPQprocedure.cs" />
     <Compile Include="Classes\RevisionParser.cs" />
     <Compile Include="Classes\PreRequeriments.cs" />
@@ -193,8 +193,13 @@
     <None Include="Resources\MCLastWesko.png" />
     <None Include="Resources\help_button2.png" />
     <None Include="Resources\warning.png" />
-    <None Include="Resources\mooege.jpg" />
-    <None Include="Resources\mooege.gif" />
+    <None Include="Resources\mooegelogo.jpg" />
+    <None Include="Resources\numero1.jpg" />
+    <None Include="Resources\numero2.jpg" />
+    <None Include="Resources\numero3.jpg" />
+    <None Include="Resources\numero4.jpg" />
+    <None Include="Resources\madcosoft.jpg" />
+    <None Include="Resources\madcosofted.jpg" />
     <Content Include="Tools\RepoList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -16,8 +16,10 @@
 
 // Used code from http://www.dreamincode.net/code/snippet1568.htm.
 
+using System;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.IO;
 
 namespace MadCow
 {
@@ -139,13 +141,13 @@ namespace MadCow
         }
 
         //Create default need folders.
-        //public static void DefaultFolderCreator()
-        //{
-        //    var programPath = Environment.CurrentDirectory;
-        //    if (Directory.Exists(programPath + @"\MPQ\base") == false)
-        //    {
-        //        Directory.CreateDirectory(programPath + @"\MPQ\base");
-        //    }
+        public static void DefaultFolderCreator()
+        {
+            var programPath = Environment.CurrentDirectory;
+            if (Directory.Exists(programPath + @"\MPQ\base") == false)
+            {
+                Directory.CreateDirectory(programPath + @"\MPQ\base");
+            }
         //    if (Directory.Exists(programPath + @"\Repositories") == false)
         //    {
         //        Directory.CreateDirectory(programPath + @"\Repositories");
@@ -175,6 +177,6 @@ namespace MadCow
         //        tw.WriteLine("False");
         //        tw.Close();
         //    }
-        //}
+        }
     }
 }

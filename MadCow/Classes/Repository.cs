@@ -299,13 +299,11 @@ namespace MadCow
                 try
                 {
                     var uri = new Uri(Url + "/commits/master.atom");
-                    //client.DownloadStringAsync(uri);
                     _revisionParser.CommitFile = client.DownloadString(uri);
                     LastRevision = _revisionParser.LastRevision;
                 }
                 catch (UriFormatException)
                 {
-
                     return false;
                 }
 
@@ -316,18 +314,15 @@ namespace MadCow
                 {
                     if (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.NotFound)
                     {
-                        //RevisionParser.CommitFile = "Incorrect repository entry";
                         return false;
                     }
                 }
                 else if (ex.Status == WebExceptionStatus.ConnectFailure)
                 {
-                    //RevisionParser.CommitFile = "ConnectionFailure";
                     return false;
                 }
                 else
                 {
-                    //RevisionParser.CommitFile = "Incorrect repository entry";
                     return false;
                 }
             }

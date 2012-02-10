@@ -57,6 +57,7 @@ namespace MadCow
             var splash = new SplashScreen.SpashScreen();
             splash.Show();
             splash.Update();
+            Helper.DefaultFolderCreator(); //Create MPQ folder
             ChatDisplayBox.MaxLength = 250; //Chat lenght
             Helper.CheckForInternet();//We check for Internet connection at start!.
             _writer = new TextBoxStreamWriter(ConsoleOutputTxtBox);
@@ -75,7 +76,6 @@ namespace MadCow
             toolTip1.SetToolTip(CopyMPQButton, "Copy MPQ's if you have D3 installed");
             toolTip1.SetToolTip(FindDiabloButton, "Find Diablo.exe so MadCow can work properly");
             toolTip1.SetToolTip(RemoteServerLaunchButton, "Connects to public server you have entered in");
-            toolTip1.SetToolTip(ResetRepoFolder, "Resets Repository folder in case of errors");
             toolTip1.SetToolTip(DownloadMPQSButton, "Downloads ALL MPQs needed to run Mooege");
             toolTip1.SetToolTip(RestoreDefaultsLabel, "Resets Server Control settings");
             toolTip1.SetToolTip(PlayDiabloButton, "Time to play Diablo 3 through Mooege!");
@@ -84,6 +84,7 @@ namespace MadCow
             RetrieveMpqList.GetfileList(); //Load MPQ list from Blizz server. Todo: This might slow down a bit MadCow loading, maybe we could place it somewhere else?.
             Helper.KillUpdater(); //This will kill MadCow updater if its running.
             ApplySettings(); //This loads Mooege settings over Mooege tab.
+            PopulateRepositories(); //Load available repositories into the dropdown menu.
             splash.Hide();
         }
         #endregion
@@ -124,21 +125,21 @@ namespace MadCow
                         }
                     }
                     new Thread(ThreadProc).Start();
-
                 }
                 else
                 {
                     MessageBox.Show("Please select a repository first!");
-                    repoComboBox.DroppedDown = true;
+                    //repoComboBox.DroppedDown = true;
                 }
 
             }
             else if (Diablo3UserPathSelection != null && !ErrorFinder.HasMpqs())
             {
-                var errorAnswer = MessageBox.Show("You haven't copied MPQ files." + "\nWould you like MadCow to fix this for you?", "Fatal Error!",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                var errorAnswer = MessageBox.Show("MadCow will now proceed to copy MPQ files into the correct folder."
+                + "\nThis will only happen over MadCow first run or if a new MPQ is required by Mooege to run!.", "First Run",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (errorAnswer == DialogResult.Yes)
+                if (errorAnswer == DialogResult.OK)
                 {
                     MpqProcedure.StartCopyProcedure();
                     PlayDiabloButton.Enabled = false;
@@ -282,7 +283,7 @@ namespace MadCow
             {
                 MessageBox.Show("Please select a repository first!");
                 Tabs.SelectTab(UpdatesTab);
-                repoComboBox.DroppedDown = true;
+                //repoComboBox.DroppedDown = true;
             }
         }
 
@@ -369,7 +370,7 @@ namespace MadCow
                 else
                 {
                     Diablo3UserPathSelection.Text = Configuration.MadCow.DiabloPath;
-                    CopyMPQButton.Enabled = true;
+                    //CopyMPQButton.Enabled = true;
                     PlayDiabloButton.Enabled = true;
                     remoteHostTxtBox.Enabled = true;
                     remotePortTxtBox.Enabled = true;
@@ -498,7 +499,7 @@ namespace MadCow
                         ));
                         CopyMPQButton.Invoke(new Action(() =>
                         {
-                            CopyMPQButton.Enabled = true;
+                            //CopyMPQButton.Enabled = true;
                         }
                         ));
                     }
@@ -799,6 +800,7 @@ namespace MadCow
             catch (Exception e)
             {
                 Console.WriteLine("[Error] While loading server profile.");
+                throw e;
             }
         }
         #endregion
@@ -1735,26 +1737,25 @@ namespace MadCow
 
         private void repoComboBox_DropDown(object sender, EventArgs e)
         {
-            PopulateRepositories();
-        }
-
-        private void PopulateRepositories()
-        {
-            repoComboBox.Items.Clear();
-            repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
             if (repoComboBox.Items.Count == 0)
             {
                 new RepositorySelection().ShowDialog();
                 repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
             }
-
-            repoComboBox.SelectedItem = Repository.Repositories.FirstOrDefault(r => r.Name == Configuration.MadCow.LastRepository);
+            else
+            {
+                PopulateRepositories();
+            }
 
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        public void PopulateRepositories()
         {
-            PopulateRepositories();
+            this.Cursor = Cursors.WaitCursor;
+            repoComboBox.Items.Clear();
+            repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
+            repoComboBox.SelectedItem = Repository.Repositories.FirstOrDefault(r => r.Name == Configuration.MadCow.LastRepository);
+            this.Cursor = Cursors.Hand;
         }
     }
 }

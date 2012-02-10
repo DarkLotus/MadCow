@@ -57,6 +57,10 @@ namespace MadCow
             {
                 Repository.Repositories.Add(editRepo.SelectedRepository);
                 RefreshAvailableRepositories();
+                Form1.GlobalAccess.Invoke(new Action(() =>
+                {
+                    Form1.GlobalAccess.PopulateRepositories();
+                }));
             }
         }
 
@@ -65,17 +69,25 @@ namespace MadCow
             if (listView1.SelectedItems.Count != 1) return;
             var dialogResult = MessageBox.Show(this,
                                                "Do you want to remove the repository from the list?" + Environment.NewLine +
-                                               "If you press 'no' it will only delete the repository folder.",
+                                               "If you press 'No' it will only delete the repository folder.",
                                                "Confirmation",
                                                MessageBoxButtons.YesNoCancel,
                                                MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 Repository.Repositories[listView1.SelectedIndices[0]].Delete(true);
+                Form1.GlobalAccess.Invoke(new Action(() =>
+                {
+                    Form1.GlobalAccess.PopulateRepositories();
+                }));
             }
             else if(dialogResult == DialogResult.No)
             {
                 Repository.Repositories[listView1.SelectedIndices[0]].Delete(false);
+                Form1.GlobalAccess.Invoke(new Action(() =>
+                {
+                    Form1.GlobalAccess.PopulateRepositories();
+                }));
             }
             RefreshAvailableRepositories();
         }

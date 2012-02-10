@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MadCow")]
-[assembly: AssemblyCopyright("Copyright MadCow Project 2011")]
+[assembly: AssemblyCopyright("Copyright MadCow Project 2012")]
 [assembly: AssemblyTrademark("MadCow")]
 [assembly: AssemblyCulture("")]
 
