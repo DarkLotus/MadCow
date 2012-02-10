@@ -88,8 +88,15 @@ namespace MadCow
         {
             if (IsDownloaded)
             {
-                Directory.Delete(Path.Combine(Paths.RepositoriesPath, Name), true);
-                LocalRevision = null;
+                try
+                {
+                    Directory.Delete(Path.Combine(Paths.RepositoriesPath, Name), true);
+                    LocalRevision = null;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             }
             if (completeDeletion)
             {

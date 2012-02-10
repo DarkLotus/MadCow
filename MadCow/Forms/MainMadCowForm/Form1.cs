@@ -1737,7 +1737,7 @@ namespace MadCow
 
         private void repoComboBox_DropDown(object sender, EventArgs e)
         {
-            if (repoComboBox.Items.Count == 0)
+            /*if (repoComboBox.Items.Count == 0)
             {
                 new RepositorySelection().ShowDialog();
                 repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
@@ -1745,8 +1745,7 @@ namespace MadCow
             else
             {
                 PopulateRepositories();
-            }
-
+            }*/
         }
 
         public void PopulateRepositories()
@@ -1756,6 +1755,19 @@ namespace MadCow
             repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
             repoComboBox.SelectedItem = Repository.Repositories.FirstOrDefault(r => r.Name == Configuration.MadCow.LastRepository);
             this.Cursor = Cursors.Hand;
+        }
+
+        private void repoComboBox_Click(object sender, EventArgs e)
+        {
+            if (repoComboBox.Items.Count == 0)
+            {
+                new RepositorySelection().ShowDialog();
+                repoComboBox.Items.AddRange(Repository.Repositories.Where(r => r.IsDownloaded).ToArray());
+            }
+            else
+            {
+                PopulateRepositories();
+            }
         }
     }
 }

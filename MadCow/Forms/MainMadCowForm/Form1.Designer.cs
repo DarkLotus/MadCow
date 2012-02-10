@@ -114,11 +114,13 @@
             this.SelectRepositoryChngLogLabel = new System.Windows.Forms.Label();
             this.SelectRepoChngLogComboBox = new System.Windows.Forms.ComboBox();
             this.LiveHelpTab = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ircIntroLabel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ircRulesLabel = new System.Windows.Forms.Label();
             this.ircNicknameLabel = new System.Windows.Forms.Label();
             this.ircNicknameTextBox = new System.Windows.Forms.TextBox();
             this.DisconnectButton = new System.Windows.Forms.Button();
-            this.ircIntroLabel = new System.Windows.Forms.Label();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.TypeHereLabel = new System.Windows.Forms.Label();
             this.ChatMessageBox = new System.Windows.Forms.TextBox();
@@ -148,8 +150,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.RemoteServerTab.SuspendLayout();
             this.RemoteServerGrpBox.SuspendLayout();
             this.ServerControlTab.SuspendLayout();
@@ -179,11 +179,11 @@
             this.OutPutTab.SuspendLayout();
             this.ChaneglogTab.SuspendLayout();
             this.LiveHelpTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // PlayDiabloButton
@@ -767,6 +767,7 @@
             this.repoComboBox.TabIndex = 17;
             this.repoComboBox.DropDown += new System.EventHandler(this.repoComboBox_DropDown);
             this.repoComboBox.SelectedIndexChanged += new System.EventHandler(this.repoComboBox_SelectedIndexChanged);
+            this.repoComboBox.Click += new System.EventHandler(this.repoComboBox_Click);
             // 
             // RepositoryHintLabel
             // 
@@ -1073,6 +1074,36 @@
             this.LiveHelpTab.TabIndex = 2;
             this.LiveHelpTab.Text = "Live Help";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::MadCow.Properties.Resources.warning;
+            this.pictureBox3.Location = new System.Drawing.Point(263, 149);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            // 
+            // ircIntroLabel
+            // 
+            this.ircIntroLabel.AutoSize = true;
+            this.ircIntroLabel.Location = new System.Drawing.Point(88, 24);
+            this.ircIntroLabel.Name = "ircIntroLabel";
+            this.ircIntroLabel.Size = new System.Drawing.Size(245, 52);
+            this.ircIntroLabel.TabIndex = 11;
+            this.ircIntroLabel.Text = "If you still haven\'t figured out how MadCow works\r\nor your getting errors in Mooe" +
+    "ge or Madcow,\r\nclick Connect to proceed to IRC Mooege channel.\r\nSomeone might be" +
+    " able to resolve your questions.";
+            this.ircIntroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MadCow.Properties.Resources.help_button2;
+            this.pictureBox2.Location = new System.Drawing.Point(14, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(78, 74);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // ircRulesLabel
             // 
             this.ircRulesLabel.AutoSize = true;
@@ -1119,18 +1150,6 @@
             this.DisconnectButton.UseVisualStyleBackColor = true;
             this.DisconnectButton.Visible = false;
             this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
-            // 
-            // ircIntroLabel
-            // 
-            this.ircIntroLabel.AutoSize = true;
-            this.ircIntroLabel.Location = new System.Drawing.Point(88, 24);
-            this.ircIntroLabel.Name = "ircIntroLabel";
-            this.ircIntroLabel.Size = new System.Drawing.Size(245, 52);
-            this.ircIntroLabel.TabIndex = 11;
-            this.ircIntroLabel.Text = "If you still haven\'t figured out how MadCow works\r\nor your getting errors in Mooe" +
-    "ge or Madcow,\r\nclick Connect to proceed to IRC Mooege channel.\r\nSomeone might be" +
-    " able to resolve your questions.";
-            this.ircIntroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ConnectButton
             // 
@@ -1242,7 +1261,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1266,7 +1285,7 @@
             this.compileAsDebugToolStripMenuItem,
             this.checkUpdatesToolStripMenuItem});
             this.madCowToolStripMenuItem.Name = "madCowToolStripMenuItem";
-            this.madCowToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.madCowToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.madCowToolStripMenuItem.Text = "Mad&Cow";
             // 
             // enableTrayToolStripMenuItem
@@ -1318,14 +1337,14 @@
             this.enableLazyLoadingToolStripMenuItem,
             this.enableNoPasswordCheckToolStripMenuItem});
             this.mooegeToolStripMenuItem.Name = "mooegeToolStripMenuItem";
-            this.mooegeToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.mooegeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.mooegeToolStripMenuItem.Text = "&Mooege";
             // 
             // enableFileLoggingToolStripMenuItem
             // 
             this.enableFileLoggingToolStripMenuItem.CheckOnClick = true;
             this.enableFileLoggingToolStripMenuItem.Name = "enableFileLoggingToolStripMenuItem";
-            this.enableFileLoggingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.enableFileLoggingToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.enableFileLoggingToolStripMenuItem.Text = "Enable File Logging";
             this.enableFileLoggingToolStripMenuItem.Click += new System.EventHandler(this.enableFileLoggingToolStripMenuItem_Click);
             // 
@@ -1333,7 +1352,7 @@
             // 
             this.enablePacketLoggingToolStripMenuItem.CheckOnClick = true;
             this.enablePacketLoggingToolStripMenuItem.Name = "enablePacketLoggingToolStripMenuItem";
-            this.enablePacketLoggingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.enablePacketLoggingToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.enablePacketLoggingToolStripMenuItem.Text = "Enable Packet Logging";
             this.enablePacketLoggingToolStripMenuItem.Click += new System.EventHandler(this.enablePacketLoggingToolStripMenuItem_Click);
             // 
@@ -1341,7 +1360,7 @@
             // 
             this.enableTasksToolStripMenuItem.CheckOnClick = true;
             this.enableTasksToolStripMenuItem.Name = "enableTasksToolStripMenuItem";
-            this.enableTasksToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.enableTasksToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.enableTasksToolStripMenuItem.Text = "Enable Tasks";
             this.enableTasksToolStripMenuItem.Click += new System.EventHandler(this.enableTasksToolStripMenuItem_Click);
             // 
@@ -1349,7 +1368,7 @@
             // 
             this.enableLazyLoadingToolStripMenuItem.CheckOnClick = true;
             this.enableLazyLoadingToolStripMenuItem.Name = "enableLazyLoadingToolStripMenuItem";
-            this.enableLazyLoadingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.enableLazyLoadingToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.enableLazyLoadingToolStripMenuItem.Text = "Enable Lazy Loading";
             this.enableLazyLoadingToolStripMenuItem.Click += new System.EventHandler(this.enableLazyLoadingToolStripMenuItem_Click);
             // 
@@ -1357,7 +1376,7 @@
             // 
             this.enableNoPasswordCheckToolStripMenuItem.CheckOnClick = true;
             this.enableNoPasswordCheckToolStripMenuItem.Name = "enableNoPasswordCheckToolStripMenuItem";
-            this.enableNoPasswordCheckToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.enableNoPasswordCheckToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.enableNoPasswordCheckToolStripMenuItem.Text = "Enable No Password Check";
             this.enableNoPasswordCheckToolStripMenuItem.Click += new System.EventHandler(this.enableNoPasswordCheckToolStripMenuItem_Click);
             // 
@@ -1420,24 +1439,6 @@
             this.statusStripProgressBar.Size = new System.Drawing.Size(100, 16);
             this.statusStripProgressBar.Visible = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::MadCow.Properties.Resources.help_button2;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(78, 74);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::MadCow.Properties.Resources.warning;
-            this.pictureBox3.Location = new System.Drawing.Point(263, 149);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1495,13 +1496,13 @@
             this.ChaneglogTab.PerformLayout();
             this.LiveHelpTab.ResumeLayout(false);
             this.LiveHelpTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
