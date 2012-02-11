@@ -54,9 +54,10 @@ namespace MadCow
                 Console.WriteLine("Copying MPQ files to MadCow Folders has completed.");
                 Form1.GlobalAccess.Invoke(new Action(() =>
                 {
-                    Form1.GlobalAccess.CopyMPQButton.Enabled = true;
                     Form1.GlobalAccess.PlayDiabloButton.Enabled = true; //We enable Play D3 button again.
-                    Form1.GlobalAccess.PlayDiabloButton.PerformClick();
+                    var repo = Form1.GlobalAccess.repoComboBox.SelectedItem as Repository;
+                    if(repo != null)
+                    Diablo.Play((Repository)Form1.GlobalAccess.repoComboBox.SelectedItem);
                 }));
             }
             else
