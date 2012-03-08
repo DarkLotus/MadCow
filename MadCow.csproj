@@ -162,6 +162,7 @@
     <None Include="Resources\warning.png" />
     <None Include="Resources\mooege.jpg" />
     <None Include="Resources\mooege.gif" />
+    <Content Include="Resources\Loading.png" />
     <Content Include="Tools\RepoList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
