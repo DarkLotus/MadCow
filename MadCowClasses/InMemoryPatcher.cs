@@ -1,4 +1,19 @@
-﻿using System;
+﻿// Copyright (C) 2011 MadCow Project
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -52,6 +67,7 @@ namespace MadCow.MadCowClasses
                
         internal static void _patch(Process Diablo3)
         {
+            // Thanks to Egris for the patching code. and Shadow^Dancer for the locations. - DarkLotus
             try
             {
                 if (Diablo3.ProcessName == "Diablo III")
@@ -73,7 +89,7 @@ namespace MadCow.MadCowClasses
                     }
 
                     if (baseAddr == IntPtr.Zero)
-                        throw new Exception("Failed to located battle.net.dll");
+                        throw new Exception("Failed to locate battle.net.dll");
 
                     var offset = 0x000B4475;
                     var JMPAddr = baseAddr.ToInt32() + offset;
