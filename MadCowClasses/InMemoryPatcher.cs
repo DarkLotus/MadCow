@@ -38,11 +38,12 @@ namespace MadCow.MadCowClasses
 
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, out byte lpBuffer, int dwSize, IntPtr lpNumberOfBytesRead);
-        static Thread t;
+        static Thread _workerThread;
+        static bool _patched = false;
         internal static void Patch(Process Diablo3)
         {
             // Start a new thread, needed so we can wait for D3 to load battle.net.dll.
-            if (t == null) { t = new Thread(new ParameterizedThreadStart(_patchThread)); t.Start(Diablo3); }
+            if (_workerThread == null) { _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); _workerThread.Start(Diablo3); }
         }
 
         internal static void _patchThread(object obj)
@@ -51,16 +52,25 @@ namespace MadCow.MadCowClasses
                 return;
             Process Diablo3 = (Process)obj;
             
-            while (!Diablo3.HasExited)
+            while (!Diablo3.HasExited && !_patched)
             {
-                foreach (ProcessModule module in Diablo3.Modules)
+                foreach (var p in Process.GetProcesses())
                 {
-                    if (module.ModuleName == "battle.net.dll")
+                    if (p.ProcessName == "Diablo III")
                     {
-                        _patch(Diablo3);
-                        break;
+                        Diablo3 = p;
+                        foreach (ProcessModule module in Diablo3.Modules)
+                        {
+                            if (module.ModuleName == "battle.net.dll")
+                            {
+                                _patch(Diablo3);
+                                _patched = true;
+                                break;
+                            }
+                        }
                     }
-                }
+                }              
+                Thread.Sleep(10);
             }
             return;
         }
