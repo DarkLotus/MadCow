@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MadCowClasses\InMemoryPatcher.cs" />
     <Compile Include="MadCowClasses\Irc.cs" />
     <Compile Include="MadCowClasses\Proxy.cs" />
     <Compile Include="MadCowClasses\ShortCutCreator.cs" />
