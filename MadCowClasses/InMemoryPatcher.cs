@@ -43,7 +43,8 @@ namespace MadCow.MadCowClasses
         internal static void Patch(Process Diablo3)
         {
             // Start a new thread, needed so we can wait for D3 to load battle.net.dll.
-            if (_workerThread == null) { _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); _workerThread.Start(Diablo3); }
+            if (_workerThread == null) { _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); _workerThread.Start(Diablo3); return; }
+            if (_workerThread.ThreadState != System.Threading.ThreadState.Running) { _workerThread.Start(Diablo3); }
         }
 
         internal static void _patchThread(object obj)
