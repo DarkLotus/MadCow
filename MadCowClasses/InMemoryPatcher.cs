@@ -106,6 +106,7 @@ namespace MadCow.MadCowClasses
                     var JMPAddr = baseAddr.ToInt32() + offset;
                     var BytesWritten = IntPtr.Zero;
                     byte[] JMP = new byte[] { 0xEB };
+                    Console.WriteLine("Attempting Client memory patch...");
                     Console.WriteLine("battle.net.dll address: 0x{0:X8}", baseAddr.ToInt32());
                     Console.WriteLine("Before write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
                     WriteProcessMemory(hWnd, new IntPtr(JMPAddr), JMP, 1, out BytesWritten);
@@ -114,11 +115,11 @@ namespace MadCow.MadCowClasses
                     CloseHandle(hWnd);
 
                     if (BytesWritten.ToInt32() < 1)
-                        throw new Exception("Failed to write to process.");
+                        throw new Exception("Failed to patch client");
                 }
             }
             catch { }
-
+            Console.WriteLine("Client successfully patched");
         }
 
         static byte ReadByte(IntPtr _handle, int offset)
