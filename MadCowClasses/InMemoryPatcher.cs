@@ -22,7 +22,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MadCow.MadCowClasses
+namespace MadCow
 {
     internal static class InMemoryPatcher
     {
@@ -40,11 +40,22 @@ namespace MadCow.MadCowClasses
         static extern bool ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, out byte lpBuffer, int dwSize, IntPtr lpNumberOfBytesRead);
         static Thread _workerThread;
         static bool _patched = false;
+
         internal static void Patch(Process Diablo3)
         {
             // Start a new thread, needed so we can wait for D3 to load battle.net.dll.
-            if (_workerThread == null) { _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); _workerThread.Start(Diablo3); return; }
-            if (_workerThread.ThreadState != System.Threading.ThreadState.Running) { _patched = false;  _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); _workerThread.Start(Diablo3); }
+            if (_workerThread == null) 
+            { 
+                _workerThread = new Thread(new ParameterizedThreadStart(_patchThread)); 
+                _workerThread.Start(Diablo3); 
+                return; 
+            }
+            if (_workerThread.ThreadState != System.Threading.ThreadState.Running) 
+            { 
+                _patched = false;  
+                _workerThread = new Thread(new ParameterizedThreadStart(_patchThread));
+                _workerThread.Start(Diablo3); 
+            }
         }
 
         internal static void _patchThread(object obj)
@@ -70,6 +81,10 @@ namespace MadCow.MadCowClasses
                             }
                         }
                     }
+                    else
+                    {
+                        Console.WriteLine("Could not find Diablo III Process");
+                    }
                 }              
                 Thread.Sleep(10);
             }
@@ -85,7 +100,10 @@ namespace MadCow.MadCowClasses
                 {
                     var hWnd = OpenProcess(0x001F0FFF, false, Diablo3.Id);
                     if (hWnd == IntPtr.Zero)
-                        throw new Exception("Failed to open process.");
+                    {
+                        Console.WriteLine("Failed to open process.");
+                        return;
+                    }
 
                     var modules = Diablo3.Modules;
                     IntPtr baseAddr = IntPtr.Zero;
@@ -100,7 +118,7 @@ namespace MadCow.MadCowClasses
                     }
 
                     if (baseAddr == IntPtr.Zero)
-                        throw new Exception("Failed to locate battle.net.dll");
+                        Console.WriteLine("Failed to locate battle.net.dll");
 
                     var offset = 0x000B4475;
                     var JMPAddr = baseAddr.ToInt32() + offset;
@@ -115,10 +133,13 @@ namespace MadCow.MadCowClasses
                     CloseHandle(hWnd);
 
                     if (BytesWritten.ToInt32() < 1)
-                        throw new Exception("Failed to patch client");
+                        Console.WriteLine("Failed to patch client");
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             Console.WriteLine("Client successfully patched");
         }
 
@@ -127,8 +148,6 @@ namespace MadCow.MadCowClasses
             byte result = 0;
             ReadProcessMemory(_handle, offset, out result, 1, IntPtr.Zero);
             return result;
-        }
-
-        
+        }       
     }
 }

@@ -57,7 +57,7 @@ namespace MadCow
                                 Diablo3.StartInfo = new ProcessStartInfo(Src);
                                 Diablo3.StartInfo.Arguments = " -launch -auroraaddress localhost:1345";
                                 Diablo3.Start();
-                                MadCowClasses.InMemoryPatcher.Patch(Diablo3);
+                                MadCow.InMemoryPatcher.Patch(Diablo3);
                                 //We save this repository for LastPlayed function.
                                 source.Configs["LastPlay"].Set("Repository", Compile.currentMooegeExePath);
                                 source.Save();
@@ -90,7 +90,7 @@ namespace MadCow
                             Diablo3.StartInfo = new ProcessStartInfo(Src);
                             Diablo3.StartInfo.Arguments = " -launch -auroraaddress localhost:1345";
                             Diablo3.Start();
-                            MadCowClasses.InMemoryPatcher.Patch(Diablo3);
+                            MadCow.InMemoryPatcher.Patch(Diablo3);
                         }
                     }
                 }
