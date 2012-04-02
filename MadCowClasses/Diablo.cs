@@ -22,6 +22,7 @@ using System.Diagnostics;
 using System.Threading;
 using Nini.Config;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MadCow
 {
@@ -42,8 +43,9 @@ namespace MadCow
                         {
                             Console.WriteLine("Starting Mooege..");
                             Process Mooege = new Process();
-                            Mooege.StartInfo = new ProcessStartInfo(Compile.currentMooegeExePath);
+                            Mooege.StartInfo = new ProcessStartInfo(Compile.currentMooegeExePath);   
                             Mooege.Start();
+
                             Thread.Sleep(3000); //We sleep so our ErrorFinder has time to parse Mooege logs.
                             if (ErrorFinder.SearchLogs("Fatal") == true)
                             {
@@ -57,10 +59,12 @@ namespace MadCow
                                 Diablo3.StartInfo = new ProcessStartInfo(Src);
                                 Diablo3.StartInfo.Arguments = " -launch -auroraaddress localhost:1345";
                                 Diablo3.Start();
-                                MadCow.InMemoryPatcher.Patch(Diablo3);
                                 //We save this repository for LastPlayed function.
                                 source.Configs["LastPlay"].Set("Repository", Compile.currentMooegeExePath);
                                 source.Save();
+                                Process D3Patcher = new Process();
+                                D3Patcher.StartInfo = new ProcessStartInfo(Program.programPath + @"\BnetPatcher\Bnet.Patcher.exe");
+                                D3Patcher.Start();
                             }
                         }
                         else
@@ -77,6 +81,7 @@ namespace MadCow
                         Process Mooege = new Process();
                         Mooege.StartInfo = new ProcessStartInfo(Compile.currentMooegeExePath);
                         Mooege.Start();
+
                         Thread.Sleep(3000);
                         if (ErrorFinder.SearchLogs("Fatal") == true)
                         {
@@ -90,7 +95,12 @@ namespace MadCow
                             Diablo3.StartInfo = new ProcessStartInfo(Src);
                             Diablo3.StartInfo.Arguments = " -launch -auroraaddress localhost:1345";
                             Diablo3.Start();
-                            MadCow.InMemoryPatcher.Patch(Diablo3);
+                            //We save this repository for LastPlayed function.
+                            source.Configs["LastPlay"].Set("Repository", Compile.currentMooegeExePath);
+                            source.Save();
+                            Process D3Patcher = new Process();
+                            D3Patcher.StartInfo = new ProcessStartInfo(Program.programPath + @"\BnetPatcher\Bnet.Patcher.exe");
+                            D3Patcher.Start();
                         }
                     }
                 }
