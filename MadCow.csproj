@@ -70,9 +70,6 @@
       <HintPath>Tools\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Meebey.SmartIrc4net">
-      <HintPath>Tools\Meebey.SmartIrc4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,8 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MadCowClasses\InMemoryPatcher.cs" />
-    <Compile Include="MadCowClasses\Irc.cs" />
     <Compile Include="MadCowClasses\Proxy.cs" />
     <Compile Include="MadCowClasses\ShortCutCreator.cs" />
     <Compile Include="MadCowClasses\Helpers.cs" />

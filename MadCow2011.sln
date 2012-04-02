@@ -3,10 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadCow", "MadCow.csproj", "{E43C3165-EE18-4F15-AF5A-447DFE662C66}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B30D37BA-120C-41F0-89B7-4DDE1E204B91} = {B30D37BA-120C-41F0-89B7-4DDE1E204B91}
 		{A56468FB-8CF2-4D33-8F22-9F0A70937376} = {A56468FB-8CF2-4D33-8F22-9F0A70937376}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadCowUpdater", "MadCowUpdater\MadCowUpdater.csproj", "{A56468FB-8CF2-4D33-8F22-9F0A70937376}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnet.Patcher", "Bnet.Patcher\Bnet.Patcher.csproj", "{B30D37BA-120C-41F0-89B7-4DDE1E204B91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +25,10 @@ Global
 		{A56468FB-8CF2-4D33-8F22-9F0A70937376}.Debug|x86.Build.0 = Debug|x86
 		{A56468FB-8CF2-4D33-8F22-9F0A70937376}.Release|x86.ActiveCfg = Release|x86
 		{A56468FB-8CF2-4D33-8F22-9F0A70937376}.Release|x86.Build.0 = Release|x86
+		{B30D37BA-120C-41F0-89B7-4DDE1E204B91}.Debug|x86.ActiveCfg = Debug|x86
+		{B30D37BA-120C-41F0-89B7-4DDE1E204B91}.Debug|x86.Build.0 = Debug|x86
+		{B30D37BA-120C-41F0-89B7-4DDE1E204B91}.Release|x86.ActiveCfg = Release|x86
+		{B30D37BA-120C-41F0-89B7-4DDE1E204B91}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

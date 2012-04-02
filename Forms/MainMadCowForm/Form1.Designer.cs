@@ -135,35 +135,20 @@
             this.DiabloPathFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadRepository = new System.ComponentModel.BackgroundWorker();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.ConsoleOutputTxtBox = new System.Windows.Forms.TextBox();
             this.VerifyDiablo3Version = new System.ComponentModel.BackgroundWorker();
             this.DownloadSelectedMpqs = new System.ComponentModel.BackgroundWorker();
             this.ErrorFilesDownloaders = new System.ComponentModel.BackgroundWorker();
             this.ValidateRepository = new System.ComponentModel.BackgroundWorker();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.OutPutTab = new System.Windows.Forms.TabPage();
-            this.ChaneglogTab = new System.Windows.Forms.TabPage();
-            this.ChangeLogTxtBox = new System.Windows.Forms.TextBox();
-            this.SelectRepositoryChngLogLabel = new System.Windows.Forms.Label();
-            this.SelectRepoChngLogComboBox = new System.Windows.Forms.ComboBox();
-            this.LiveHelpTab = new System.Windows.Forms.TabPage();
-            this.DisconnectButton = new System.Windows.Forms.Button();
-            this.PleaseWaitLabel = new System.Windows.Forms.Label();
-            this.Advertencia = new System.Windows.Forms.PictureBox();
-            this.Rules = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BotonAlerta = new System.Windows.Forms.PictureBox();
-            this.ConnectButton = new System.Windows.Forms.Button();
-            this.TypeHereLabel = new System.Windows.Forms.Label();
-            this.ChatMessageBox = new System.Windows.Forms.TextBox();
-            this.ChatUsersBox = new System.Windows.Forms.TextBox();
-            this.ChatDisplayBox = new System.Windows.Forms.TextBox();
             this.ChangelogDownloader = new System.ComponentModel.BackgroundWorker();
             this.MadCowTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MpqPathBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.ChaneglogTab = new System.Windows.Forms.TabPage();
+            this.SelectRepoChngLogComboBox = new System.Windows.Forms.ComboBox();
+            this.SelectRepositoryChngLogLabel = new System.Windows.Forms.Label();
+            this.ChangeLogTxtBox = new System.Windows.Forms.TextBox();
+            this.OutPutTab = new System.Windows.Forms.TabPage();
+            this.ConsoleOutputTxtBox = new System.Windows.Forms.TextBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.AutoUpdateValue)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.RemoteServerTab.SuspendLayout();
@@ -196,12 +181,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChainPicture)).BeginInit();
             this.AboutTab.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.OutPutTab.SuspendLayout();
             this.ChaneglogTab.SuspendLayout();
-            this.LiveHelpTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Advertencia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BotonAlerta)).BeginInit();
+            this.OutPutTab.SuspendLayout();
+            this.tabControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnableAutoUpdateBox
@@ -1328,21 +1310,6 @@
             this.DownloadRepository.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.DownloadRepository.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // ConsoleOutputTxtBox
-            // 
-            this.ConsoleOutputTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ConsoleOutputTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ConsoleOutputTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ConsoleOutputTxtBox.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConsoleOutputTxtBox.ForeColor = System.Drawing.Color.White;
-            this.ConsoleOutputTxtBox.Location = new System.Drawing.Point(6, 6);
-            this.ConsoleOutputTxtBox.Multiline = true;
-            this.ConsoleOutputTxtBox.Name = "ConsoleOutputTxtBox";
-            this.ConsoleOutputTxtBox.ReadOnly = true;
-            this.ConsoleOutputTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsoleOutputTxtBox.Size = new System.Drawing.Size(353, 322);
-            this.ConsoleOutputTxtBox.TabIndex = 16;
-            // 
             // VerifyDiablo3Version
             // 
             this.VerifyDiablo3Version.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
@@ -1367,31 +1334,20 @@
             // 
             this.ValidateRepository.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker5_DoWork);
             // 
-            // tabControl2
+            // ChangelogDownloader
             // 
-            this.tabControl2.Controls.Add(this.OutPutTab);
-            this.tabControl2.Controls.Add(this.ChaneglogTab);
-            this.tabControl2.Controls.Add(this.LiveHelpTab);
-            this.tabControl2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabControl2.HotTrack = true;
-            this.tabControl2.ItemSize = new System.Drawing.Size(96, 18);
-            this.tabControl2.Location = new System.Drawing.Point(358, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(373, 360);
-            this.tabControl2.TabIndex = 17;
+            this.ChangelogDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker6_DoWork);
             // 
-            // OutPutTab
+            // MadCowTrayIcon
             // 
-            this.OutPutTab.Controls.Add(this.ConsoleOutputTxtBox);
-            this.OutPutTab.Location = new System.Drawing.Point(4, 22);
-            this.OutPutTab.Name = "OutPutTab";
-            this.OutPutTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OutPutTab.Size = new System.Drawing.Size(365, 334);
-            this.OutPutTab.TabIndex = 0;
-            this.OutPutTab.Text = "Output";
-            this.OutPutTab.UseVisualStyleBackColor = true;
+            this.MadCowTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("MadCowTrayIcon.Icon")));
+            this.MadCowTrayIcon.Text = "MadCow";
+            this.MadCowTrayIcon.Visible = true;
+            this.MadCowTrayIcon.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
+            // MpqPathBrowserDialog
+            // 
+            this.MpqPathBrowserDialog.Description = "Select the MPQ destination.";
             // 
             // ChaneglogTab
             // 
@@ -1405,6 +1361,24 @@
             this.ChaneglogTab.Size = new System.Drawing.Size(365, 334);
             this.ChaneglogTab.TabIndex = 1;
             this.ChaneglogTab.Text = "Changelog";
+            // 
+            // SelectRepoChngLogComboBox
+            // 
+            this.SelectRepoChngLogComboBox.FormattingEnabled = true;
+            this.SelectRepoChngLogComboBox.Location = new System.Drawing.Point(172, 10);
+            this.SelectRepoChngLogComboBox.Name = "SelectRepoChngLogComboBox";
+            this.SelectRepoChngLogComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SelectRepoChngLogComboBox.TabIndex = 0;
+            this.SelectRepoChngLogComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // SelectRepositoryChngLogLabel
+            // 
+            this.SelectRepositoryChngLogLabel.AutoSize = true;
+            this.SelectRepositoryChngLogLabel.Location = new System.Drawing.Point(66, 13);
+            this.SelectRepositoryChngLogLabel.Name = "SelectRepositoryChngLogLabel";
+            this.SelectRepositoryChngLogLabel.Size = new System.Drawing.Size(100, 13);
+            this.SelectRepositoryChngLogLabel.TabIndex = 1;
+            this.SelectRepositoryChngLogLabel.Text = "Select A Repository";
             // 
             // ChangeLogTxtBox
             // 
@@ -1420,226 +1394,45 @@
             this.ChangeLogTxtBox.Size = new System.Drawing.Size(351, 291);
             this.ChangeLogTxtBox.TabIndex = 2;
             // 
-            // SelectRepositoryChngLogLabel
+            // OutPutTab
             // 
-            this.SelectRepositoryChngLogLabel.AutoSize = true;
-            this.SelectRepositoryChngLogLabel.Location = new System.Drawing.Point(66, 13);
-            this.SelectRepositoryChngLogLabel.Name = "SelectRepositoryChngLogLabel";
-            this.SelectRepositoryChngLogLabel.Size = new System.Drawing.Size(100, 13);
-            this.SelectRepositoryChngLogLabel.TabIndex = 1;
-            this.SelectRepositoryChngLogLabel.Text = "Select A Repository";
+            this.OutPutTab.Controls.Add(this.ConsoleOutputTxtBox);
+            this.OutPutTab.Location = new System.Drawing.Point(4, 22);
+            this.OutPutTab.Name = "OutPutTab";
+            this.OutPutTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OutPutTab.Size = new System.Drawing.Size(365, 334);
+            this.OutPutTab.TabIndex = 0;
+            this.OutPutTab.Text = "Output";
+            this.OutPutTab.UseVisualStyleBackColor = true;
             // 
-            // SelectRepoChngLogComboBox
+            // ConsoleOutputTxtBox
             // 
-            this.SelectRepoChngLogComboBox.FormattingEnabled = true;
-            this.SelectRepoChngLogComboBox.Location = new System.Drawing.Point(172, 10);
-            this.SelectRepoChngLogComboBox.Name = "SelectRepoChngLogComboBox";
-            this.SelectRepoChngLogComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SelectRepoChngLogComboBox.TabIndex = 0;
-            this.SelectRepoChngLogComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.ConsoleOutputTxtBox.BackColor = System.Drawing.Color.SteelBlue;
+            this.ConsoleOutputTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ConsoleOutputTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ConsoleOutputTxtBox.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConsoleOutputTxtBox.ForeColor = System.Drawing.Color.White;
+            this.ConsoleOutputTxtBox.Location = new System.Drawing.Point(6, 6);
+            this.ConsoleOutputTxtBox.Multiline = true;
+            this.ConsoleOutputTxtBox.Name = "ConsoleOutputTxtBox";
+            this.ConsoleOutputTxtBox.ReadOnly = true;
+            this.ConsoleOutputTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ConsoleOutputTxtBox.Size = new System.Drawing.Size(353, 322);
+            this.ConsoleOutputTxtBox.TabIndex = 16;
             // 
-            // LiveHelpTab
+            // tabControl2
             // 
-            this.LiveHelpTab.Controls.Add(this.DisconnectButton);
-            this.LiveHelpTab.Controls.Add(this.PleaseWaitLabel);
-            this.LiveHelpTab.Controls.Add(this.Advertencia);
-            this.LiveHelpTab.Controls.Add(this.Rules);
-            this.LiveHelpTab.Controls.Add(this.label4);
-            this.LiveHelpTab.Controls.Add(this.label3);
-            this.LiveHelpTab.Controls.Add(this.label2);
-            this.LiveHelpTab.Controls.Add(this.label1);
-            this.LiveHelpTab.Controls.Add(this.BotonAlerta);
-            this.LiveHelpTab.Controls.Add(this.ConnectButton);
-            this.LiveHelpTab.Controls.Add(this.TypeHereLabel);
-            this.LiveHelpTab.Controls.Add(this.ChatMessageBox);
-            this.LiveHelpTab.Controls.Add(this.ChatUsersBox);
-            this.LiveHelpTab.Controls.Add(this.ChatDisplayBox);
-            this.LiveHelpTab.Location = new System.Drawing.Point(4, 22);
-            this.LiveHelpTab.Name = "LiveHelpTab";
-            this.LiveHelpTab.Size = new System.Drawing.Size(365, 334);
-            this.LiveHelpTab.TabIndex = 2;
-            this.LiveHelpTab.Text = "Live Help";
-            this.LiveHelpTab.UseVisualStyleBackColor = true;
-            // 
-            // DisconnectButton
-            // 
-            this.DisconnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisconnectButton.ForeColor = System.Drawing.Color.Maroon;
-            this.DisconnectButton.Location = new System.Drawing.Point(248, 270);
-            this.DisconnectButton.Name = "DisconnectButton";
-            this.DisconnectButton.Size = new System.Drawing.Size(105, 58);
-            this.DisconnectButton.TabIndex = 17;
-            this.DisconnectButton.Text = "Disconnect";
-            this.DisconnectButton.UseVisualStyleBackColor = true;
-            this.DisconnectButton.Visible = false;
-            this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
-            // 
-            // PleaseWaitLabel
-            // 
-            this.PleaseWaitLabel.AutoSize = true;
-            this.PleaseWaitLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PleaseWaitLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PleaseWaitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PleaseWaitLabel.ForeColor = System.Drawing.Color.Orange;
-            this.PleaseWaitLabel.Location = new System.Drawing.Point(234, 304);
-            this.PleaseWaitLabel.Name = "PleaseWaitLabel";
-            this.PleaseWaitLabel.Size = new System.Drawing.Size(119, 24);
-            this.PleaseWaitLabel.TabIndex = 7;
-            this.PleaseWaitLabel.Text = "Please wait...";
-            this.PleaseWaitLabel.Visible = false;
-            // 
-            // Advertencia
-            // 
-            this.Advertencia.Image = global::MadCow.Properties.Resources.warning;
-            this.Advertencia.Location = new System.Drawing.Point(271, 170);
-            this.Advertencia.Name = "Advertencia";
-            this.Advertencia.Size = new System.Drawing.Size(51, 49);
-            this.Advertencia.TabIndex = 16;
-            this.Advertencia.TabStop = false;
-            // 
-            // Rules
-            // 
-            this.Rules.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Rules.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rules.Location = new System.Drawing.Point(11, 122);
-            this.Rules.Multiline = true;
-            this.Rules.Name = "Rules";
-            this.Rules.Size = new System.Drawing.Size(335, 122);
-            this.Rules.TabIndex = 15;
-            this.Rules.Text = "Rules:\r\nRead before asking; http://goo.gl/zyIKu\r\nFAQ/wiki: http://goo.gl/K5tDU\r\nN" +
-    "o Spam\r\nNo Racism\r\nNo Stupid questions\r\nNo  Public servers posting\r\nAsking for a" +
-    " \'crack\' == BAN.";
-            this.Rules.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(105, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(241, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Someone might be able to resolve your questions.\r\n";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "clic Connect to proceed to IRC Mooege channel.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "or your getting errors in Mooege or Madcow,";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "If you still haven\'t figured out how MadCow works";
-            // 
-            // BotonAlerta
-            // 
-            this.BotonAlerta.Image = global::MadCow.Properties.Resources.help_button2;
-            this.BotonAlerta.Location = new System.Drawing.Point(14, 15);
-            this.BotonAlerta.Name = "BotonAlerta";
-            this.BotonAlerta.Size = new System.Drawing.Size(77, 77);
-            this.BotonAlerta.TabIndex = 10;
-            this.BotonAlerta.TabStop = false;
-            // 
-            // ConnectButton
-            // 
-            this.ConnectButton.Enabled = false;
-            this.ConnectButton.Location = new System.Drawing.Point(14, 286);
-            this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(339, 42);
-            this.ConnectButton.TabIndex = 9;
-            this.ConnectButton.Text = "Connect (DISABLED TILL BUG FIXING)";
-            this.ConnectButton.UseVisualStyleBackColor = true;
-            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
-            // 
-            // TypeHereLabel
-            // 
-            this.TypeHereLabel.AutoSize = true;
-            this.TypeHereLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypeHereLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.TypeHereLabel.Location = new System.Drawing.Point(11, 252);
-            this.TypeHereLabel.Name = "TypeHereLabel";
-            this.TypeHereLabel.Size = new System.Drawing.Size(70, 13);
-            this.TypeHereLabel.TabIndex = 8;
-            this.TypeHereLabel.Text = "Type Here;";
-            this.TypeHereLabel.Visible = false;
-            // 
-            // ChatMessageBox
-            // 
-            this.ChatMessageBox.AcceptsTab = true;
-            this.ChatMessageBox.BackColor = System.Drawing.Color.White;
-            this.ChatMessageBox.Location = new System.Drawing.Point(14, 270);
-            this.ChatMessageBox.Multiline = true;
-            this.ChatMessageBox.Name = "ChatMessageBox";
-            this.ChatMessageBox.Size = new System.Drawing.Size(228, 58);
-            this.ChatMessageBox.TabIndex = 6;
-            this.ChatMessageBox.Visible = false;
-            this.ChatMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
-            this.ChatMessageBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
-            // 
-            // ChatUsersBox
-            // 
-            this.ChatUsersBox.BackColor = System.Drawing.Color.White;
-            this.ChatUsersBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.ChatUsersBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChatUsersBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ChatUsersBox.HideSelection = false;
-            this.ChatUsersBox.Location = new System.Drawing.Point(248, 15);
-            this.ChatUsersBox.Multiline = true;
-            this.ChatUsersBox.Name = "ChatUsersBox";
-            this.ChatUsersBox.ReadOnly = true;
-            this.ChatUsersBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ChatUsersBox.Size = new System.Drawing.Size(105, 219);
-            this.ChatUsersBox.TabIndex = 5;
-            this.ChatUsersBox.Visible = false;
-            this.ChatUsersBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseMove);
-            // 
-            // ChatDisplayBox
-            // 
-            this.ChatDisplayBox.BackColor = System.Drawing.Color.White;
-            this.ChatDisplayBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ChatDisplayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChatDisplayBox.ForeColor = System.Drawing.Color.Black;
-            this.ChatDisplayBox.HideSelection = false;
-            this.ChatDisplayBox.Location = new System.Drawing.Point(14, 15);
-            this.ChatDisplayBox.MaxLength = 250;
-            this.ChatDisplayBox.Multiline = true;
-            this.ChatDisplayBox.Name = "ChatDisplayBox";
-            this.ChatDisplayBox.ReadOnly = true;
-            this.ChatDisplayBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ChatDisplayBox.Size = new System.Drawing.Size(228, 219);
-            this.ChatDisplayBox.TabIndex = 1;
-            this.ChatDisplayBox.Visible = false;
-            // 
-            // ChangelogDownloader
-            // 
-            this.ChangelogDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker6_DoWork);
-            // 
-            // MadCowTrayIcon
-            // 
-            this.MadCowTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("MadCowTrayIcon.Icon")));
-            this.MadCowTrayIcon.Text = "MadCow";
-            this.MadCowTrayIcon.Visible = true;
-            this.MadCowTrayIcon.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
-            // 
-            // MpqPathBrowserDialog
-            // 
-            this.MpqPathBrowserDialog.Description = "Select the MPQ destination.";
+            this.tabControl2.Controls.Add(this.OutPutTab);
+            this.tabControl2.Controls.Add(this.ChaneglogTab);
+            this.tabControl2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControl2.HotTrack = true;
+            this.tabControl2.ItemSize = new System.Drawing.Size(96, 18);
+            this.tabControl2.Location = new System.Drawing.Point(358, 0);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(373, 360);
+            this.tabControl2.TabIndex = 17;
             // 
             // Form1
             // 
@@ -1698,15 +1491,11 @@
             this.AboutTab.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.OutPutTab.ResumeLayout(false);
-            this.OutPutTab.PerformLayout();
             this.ChaneglogTab.ResumeLayout(false);
             this.ChaneglogTab.PerformLayout();
-            this.LiveHelpTab.ResumeLayout(false);
-            this.LiveHelpTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Advertencia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BotonAlerta)).EndInit();
+            this.OutPutTab.ResumeLayout(false);
+            this.OutPutTab.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1785,14 +1574,7 @@
         private System.Windows.Forms.Label DownloadSpeedLabel;
         private System.ComponentModel.BackgroundWorker ErrorFilesDownloaders;
         private System.ComponentModel.BackgroundWorker ValidateRepository;
-        public System.Windows.Forms.TextBox ConsoleOutputTxtBox;
         public System.Windows.Forms.ProgressBar generalProgressBar;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage OutPutTab;
-        private System.Windows.Forms.TabPage ChaneglogTab;
-        private System.Windows.Forms.TextBox ChangeLogTxtBox;
-        private System.Windows.Forms.Label SelectRepositoryChngLogLabel;
-        private System.Windows.Forms.ComboBox SelectRepoChngLogComboBox;
         private System.ComponentModel.BackgroundWorker ChangelogDownloader;
         public System.Windows.Forms.NotifyIcon MadCowTrayIcon;
         public System.Windows.Forms.Button PlayDiabloButton;
@@ -1831,21 +1613,13 @@
         public System.Windows.Forms.Label mpqDestinationDisableLabel;
         private System.Windows.Forms.LinkLabel DownloadNetLabel;
         private System.Windows.Forms.Label ProblemsCompilingLabel;
-        private System.Windows.Forms.TabPage LiveHelpTab;
-        public System.Windows.Forms.TextBox ChatDisplayBox;
-        public System.Windows.Forms.TextBox ChatUsersBox;
-        public System.Windows.Forms.TextBox ChatMessageBox;
-        public System.Windows.Forms.Label PleaseWaitLabel;
-        public System.Windows.Forms.Label TypeHereLabel;
-        public System.Windows.Forms.Button ConnectButton;
-        public System.Windows.Forms.PictureBox BotonAlerta;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox Rules;
-        public System.Windows.Forms.PictureBox Advertencia;
-        public System.Windows.Forms.Button DisconnectButton;
+        private System.Windows.Forms.TabPage ChaneglogTab;
+        private System.Windows.Forms.TextBox ChangeLogTxtBox;
+        private System.Windows.Forms.Label SelectRepositoryChngLogLabel;
+        private System.Windows.Forms.ComboBox SelectRepoChngLogComboBox;
+        private System.Windows.Forms.TabPage OutPutTab;
+        public System.Windows.Forms.TextBox ConsoleOutputTxtBox;
+        public System.Windows.Forms.TabControl tabControl2;
 
     }
 }

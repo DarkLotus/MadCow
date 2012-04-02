@@ -139,30 +139,30 @@ raptium, DrakeFish, Reelix, sku</value>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAAVhJREFUOE+djz1L
-        QlEYx+9XiIYGaykQigihGrSQkjKzJqMh2mqpoSZbok8hhIJRkEGJt0yDLgm+YNoVE0K0ruYQgRHVUEMt
-        Lf+eFK4e7pGg4Xf4vz3DEQD8i/TrJeSXNL/8C3fZBV9llyQE7qAVxfc8HLFpuAsusvVMM2rF6VMAQ+Fe
-        iCU/2UbOjFqxV/VAL+oQVESybMcYHvtvXnSLHfDmPGS1fe1JPiewkHHg6itFtlH6PnagP+uEM7LO5M0I
-        8XIMtsNxGMMDmLmeoKxehD79GE70wXpkVjMetSdeimIqZMZIxIDtRxeU7xtYcyb0H/QgXonShH/8iyo2
-        oxuYy8zCLlswn7djVBrEyvkyVdqjZlRxWy3AFrbAkbXDlqQvBQzIPmSo0h41w5i1k1WMBY2YlExYOl6k
-        iB3zYIxcTKHL2Q7dVhsuchJF7JiHJlDu71AsF0iyOR8IP2RujPRPWQzVAAAAAElFTkSuQmCC
+        DAAACwwBP0AiyAAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAAUFJREFUOE9j+P//
+        PwM5+Oirw/+PvzxKnubpNyf9X3x7HtDe/wwk2X7l/cX/Qfs8/0+/PAmsmSQDNjxd/d9kk+b/NTdWwjUT
+        bcD8JzP+q62R/r/++hoUzUQZsOj17P9Ka8T/zz4zA0Mz3IBDzw/8jzwR9P/Y1yMoihZ/mPNfbbPM/5Jd
+        eVg1gw3Yf3Pff4/ljv8tN+n99z7tAle48cvK/6YHtP67rbDDqRnugv039v5332j333qXwf+pDyf9v/7r
+        /H+3M1b/dZYo/99/ey9hA0AmVe0t/R98wue/13Gn/6EXvf7bbDf+n7EtGa9mlEC8+uTyf49NTv+DTnn9
+        9zgE9NJqg/+n7p8g3gCQabnrMv87rLf877rd6n/S2miCmjGi8fiVI/9lS4T/S9cI/t95ZjvpBoBMvH7r
+        2v8rNy8TpRmkHgBkboz0Ut5g5gAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="DownloadSpeedTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -173,6 +173,9 @@ raptium, DrakeFish, Reelix, sku</value>
   </metadata>
   <metadata name="DownloadRepository.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>188, 17</value>
+  </metadata>
+  <metadata name="ToolTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>362, 17</value>
   </metadata>
   <metadata name="VerifyDiablo3Version.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>442, 17</value>

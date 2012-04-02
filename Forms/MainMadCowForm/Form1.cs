@@ -63,7 +63,6 @@ namespace MadCow
             SplashScreen.SpashScreen splash = new SplashScreen.SpashScreen();
             splash.Show();
             splash.Update();
-            this.ChatDisplayBox.MaxLength = 250; //Chat lenght
             Helper.CheckForInternet();//We check for Internet connection at start!.
             Helper.DefaultFolderCreator(); //We create default MadCow needed folders.
             this.VersionLabel.Text = Application.ProductVersion;
@@ -2306,7 +2305,6 @@ namespace MadCow
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Client.irc.Disconnect();
             SaveSettings();
         }
 
@@ -2365,92 +2363,5 @@ namespace MadCow
         {
             System.Diagnostics.Process.Start("http://www.microsoft.com/download/en/details.aspx?id=17851");
         }
-
-        ///////////////////////////////////////////////////////////
-        //MadCow Live Help
-        ///////////////////////////////////////////////////////////
-        #region MadCow Live Help
-        public static Thread ircThread;       
-        private void ConnectButton_Click(object sender, EventArgs e)
-        {
-            if (ircThread != null) //This is temporary to prevent connecting again and IRC malfunctioning.
-            {
-                MessageBox.Show("There is a bug with current IRC implementation \nthat i'm not able to takle." + "\nIn order to connect again you need to restart MadCow." + "\nSorry for the inconvenience. -Wesko","Notice",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            else
-            {
-                //We hide the current tab contents.
-                Rules.Visible = false;
-                label1.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
-                BotonAlerta.Visible = false;
-                Advertencia.Visible = false;
-                ConnectButton.Visible = false;
-
-                //Show the chat content.
-                ChatDisplayBox.Visible = true;
-                ChatUsersBox.Visible = true;
-                PleaseWaitLabel.Visible = true;
-
-                //Start our IRC client in a new thread.
-                ircThread = new Thread(new ThreadStart(ThreadFunction));
-                ircThread.Start();
-            }
-        }
-        
-
-        private void ThreadFunction()
-        {
-            Client.Run();
-        }
-
-        private void textBox3_MouseMove(object sender, MouseEventArgs e)
-        {
-            ((TextBox)sender).SelectionLength = 0;
-        }
-
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                e.Handled = true; //Disable annoying beep sound!
-                Client.SendMessage(ChatMessageBox.Text);
-                ChatDisplayBox.SelectionStart = ChatDisplayBox.Text.Length;
-                ChatDisplayBox.ScrollToCaret();
-                ChatMessageBox.Clear();
-            }
-        }
-
-        private void textBox2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (ChatMessageBox.TextLength > 250)
-            {
-                e.SuppressKeyPress = true;
-            }
-            if (e.KeyValue == (char)13 && ChatMessageBox.TextLength > 250)
-            {
-                e.Handled = true;
-                Client.SendMessage(ChatMessageBox.Text);
-                ChatDisplayBox.SelectionStart = ChatDisplayBox.Text.Length;
-                ChatDisplayBox.ScrollToCaret();
-                ChatMessageBox.Clear();
-            }
-            if (e.KeyValue == (char)8)
-            {
-                e.SuppressKeyPress = false;
-                e.Handled = true;
-            }
-        }
-
-        private void DisconnectButton_Click(object sender, EventArgs e)
-        {
-            ChatUsersBox.Clear();
-            ChatDisplayBox.Clear();
-            ChatMessageBox.Clear();
-            Client.irc.Disconnect();
-        }
-        #endregion
     }
 }
